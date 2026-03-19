@@ -1,6 +1,13 @@
 // ── State ──────────────────────────────────────────────────
 let currentUser = null;   // { email, credits_remaining }
 
+// ── Plausible event tracking ────────────────────────────────
+function trackEvent(name, props) {
+  if (typeof plausible !== 'undefined') {
+    plausible(name, { props: props || {} });
+  }
+}
+
 // ── Boot ───────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('destiny_user');
@@ -116,6 +123,7 @@ async function getReading() {
   }
 
   if (currentUser.credits_remaining <= 0) {
+    trackEvent('Paywall Hit');
     showView('paywall-view'); return;
   }
 
@@ -133,6 +141,7 @@ async function getReading() {
     const data = await res.json();
 
     if (res.status === 402) {
+      trackEvent('Paywall Hit');
       showView('paywall-view'); return;
     }
 
@@ -187,6 +196,7 @@ function renderReading(chart, readingText, focus, question) {
     .join('');
 
   updateCreditsDisplay();
+  trackEvent('Reading Complete', { focus: focus || 'General Destiny' });
   showView('reading-view');
 }
 
@@ -200,6 +210,7 @@ async function startCheckout() {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Checkout failed');
+    trackEvent('Purchase Started');
     window.location.href = data.url;
   } catch (e) {
     alert('Could not start checkout. Please try again.');
