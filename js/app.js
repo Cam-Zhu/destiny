@@ -205,3 +205,14 @@ async function startCheckout() {
     alert('Could not start checkout. Please try again.');
   }
 }
+
+// ── Policy modal ─────────────────────────────────────────────
+function showPolicy() {
+  const el = document.getElementById('policy-overlay');
+  el.style.display = 'flex';
+}
+
+function hidePolicy() {
+  const el = document.getElementById('policy-overlay');
+  el.style.display = 'none';
+}
