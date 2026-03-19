@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#1a0a00"/>
+
+  <!-- Lantern top cap -->
+  <rect x="12" y="3" width="8" height="2.5" rx="1" fill="#c8922a"/>
+  <!-- Hanging string -->
+  <line x1="16" y1="2" x2="16" y2="4" stroke="#c8922a" stroke-width="1"/>
+
+  <!-- Lantern body -->
+  <ellipse cx="16" cy="16" rx="7.5" ry="10" fill="#b5181a"/>
+
+  <!-- Lantern ribs -->
+  <line x1="16" y1="6" x2="16" y2="26" stroke="#8a1012" stroke-width="0.5" opacity="0.6"/>
+  <line x1="9.5" y1="10" x2="22.5" y2="10" stroke="#8a1012" stroke-width="0.5" opacity="0.5"/>
+  <line x1="8.8" y1="14" x2="23.2" y2="14" stroke="#8a1012" stroke-width="0.5" opacity="0.5"/>
+  <line x1="8.8" y1="18" x2="23.2" y2="18" stroke="#8a1012" stroke-width="0.5" opacity="0.5"/>
+  <line x1="9.5" y1="22" x2="22.5" y2="22" stroke="#8a1012" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Lantern glow -->
+  <ellipse cx="16" cy="16" rx="5" ry="7" fill="#f5c842" opacity="0.15"/>
+
+  <!-- Gold Chinese character 福 (fortune) -->
+  <text x="16" y="20" text-anchor="middle" font-family="serif" font-size="10" fill="#f5e6a0" font-weight="bold">福</text>
+
+  <!-- Lantern bottom cap -->
+  <rect x="12" y="25.5" width="8" height="2.5" rx="1" fill="#c8922a"/>
+
+  <!-- Tassel -->
+  <line x1="14.5" y1="28" x2="14" y2="31" stroke="#c8922a" stroke-width="0.8"/>
+  <line x1="16" y1="28" x2="16" y2="31.5" stroke="#c8922a" stroke-width="0.8"/>
+  <line x1="17.5" y1="28" x2="18" y2="31" stroke="#c8922a" stroke-width="0.8"/>
+</svg>
