@@ -62,6 +62,20 @@
             <label class="form-label">Hour of Birth <span class="label-note">(optional — refines Four Pillars)</span></label>
             <input class="form-input" id="inp-hour" type="number" placeholder="Hour (0–23)" min="0" max="23" />
           </div>
+          <div class="form-row">
+            <label class="form-label">What does the oracle reveal today?</label>
+            <select class="form-input" id="inp-focus">
+              <option value="General Destiny">General Destiny</option>
+              <option value="Love & Relationships">Love & Relationships</option>
+              <option value="Career & Wealth">Career & Wealth</option>
+              <option value="Health & Wellbeing">Health & Wellbeing</option>
+              <option value="Family & Home">Family & Home</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label">A question for the oracle <span class="label-note">(optional)</span></label>
+            <input class="form-input" id="inp-question" type="text" placeholder="e.g. Should I change careers? Will I find love?" />
+          </div>
           <div id="form-error" class="error-msg" style="display:none;"></div>
           <button class="submit-btn" id="get-reading-btn" onclick="getReading()">Reveal My Destiny</button>
         </div>
@@ -96,6 +110,8 @@
             <span class="sign-chinese" id="res-chinese">龍</span>
           </div>
           <div class="sign-element" id="res-element">Wood Dragon · Yang</div>
+          <div class="focus-badge" id="res-focus">General Destiny</div>
+          <div class="question-display" id="res-question" style="display:none;"></div>
         </div>
         <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
         <div class="section-heading">Four Pillars of Destiny</div>
