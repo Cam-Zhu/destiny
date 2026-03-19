@@ -98,12 +98,14 @@ async function refreshCredits() {
 
 // ── Reading ─────────────────────────────────────────────────
 async function getReading() {
-  const name  = document.getElementById('inp-name').value.trim();
-  const day   = parseInt(document.getElementById('inp-day').value);
-  const month = parseInt(document.getElementById('inp-month').value);
-  const year  = parseInt(document.getElementById('inp-year').value);
-  const hourRaw = document.getElementById('inp-hour').value;
-  const hour  = hourRaw !== '' ? parseInt(hourRaw) : null;
+  const name     = document.getElementById('inp-name').value.trim();
+  const day      = parseInt(document.getElementById('inp-day').value);
+  const month    = parseInt(document.getElementById('inp-month').value);
+  const year     = parseInt(document.getElementById('inp-year').value);
+  const hourRaw  = document.getElementById('inp-hour').value;
+  const hour     = hourRaw !== '' ? parseInt(hourRaw) : null;
+  const focus    = document.getElementById('inp-focus').value;
+  const question = document.getElementById('inp-question').value.trim();
 
   const errEl = document.getElementById('form-error');
   errEl.style.display = 'none';
@@ -125,13 +127,12 @@ async function getReading() {
     const res = await fetch('/.netlify/functions/reading', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: currentUser.email, name, day, month, year, hour, chart })
+      body: JSON.stringify({ email: currentUser.email, name, day, month, year, hour, focus, question, chart })
     });
 
     const data = await res.json();
 
     if (res.status === 402) {
-      // Out of credits (server confirmed)
       showView('paywall-view'); return;
     }
 
@@ -140,7 +141,7 @@ async function getReading() {
     currentUser.credits_remaining = data.credits_remaining;
     localStorage.setItem('destiny_user', JSON.stringify(currentUser));
 
-    renderReading(chart, data.reading);
+    renderReading(chart, data.reading, focus, question);
   } catch (e) {
     showForm();
     document.getElementById('form-error').textContent = e.message || 'Something went wrong. Please try again.';
@@ -149,17 +150,17 @@ async function getReading() {
 }
 
 // ── Render ──────────────────────────────────────────────────
-function renderReading(chart, readingText) {
+function renderReading(chart, readingText, focus, question) {
   document.getElementById('res-emoji').textContent   = chart.year.emoji;
   document.getElementById('res-sign').textContent    = chart.year.animal;
   document.getElementById('res-chinese').textContent = chart.year.animalCN;
   document.getElementById('res-element').textContent = `${chart.year.element} ${chart.year.animal} · ${chart.year.polarity}`;
 
   const pillars = [
-    { label: 'Year',  cn: chart.year.stem + chart.year.branch,   val: `${chart.year.element} ${chart.year.animal}` },
-    { label: 'Month', cn: chart.month.branch,                     val: chart.month.animal },
-    { label: 'Day',   cn: chart.day.stem + chart.day.branch,      val: chart.day.element },
-    { label: 'Hour',  cn: chart.hour ? chart.hour.branch : '—',   val: chart.hour ? chart.hour.animal : 'Unknown' }
+    { label: 'Year',  cn: chart.year.stem + chart.year.branch,  val: `${chart.year.element} ${chart.year.animal}` },
+    { label: 'Month', cn: chart.month.branch,                    val: chart.month.animal },
+    { label: 'Day',   cn: chart.day.stem + chart.day.branch,     val: chart.day.element },
+    { label: 'Hour',  cn: chart.hour ? chart.hour.branch : '—',  val: chart.hour ? chart.hour.animal : 'Unknown' }
   ];
 
   document.getElementById('pillars-grid').innerHTML = pillars.map(p => `
@@ -168,6 +169,17 @@ function renderReading(chart, readingText) {
       <span class="pillar-chinese">${p.cn}</span>
       <div class="pillar-value">${p.val}</div>
     </div>`).join('');
+
+  // Show focus area and question if provided
+  const focusEl = document.getElementById('res-focus');
+  if (focusEl) {
+    focusEl.textContent = focus || 'General Destiny';
+  }
+  const questionEl = document.getElementById('res-question');
+  if (questionEl) {
+    questionEl.style.display = question ? 'block' : 'none';
+    questionEl.textContent = question ? `"${question}"` : '';
+  }
 
   const paras = readingText.split('\n').filter(s => s.trim());
   document.getElementById('reading-body').innerHTML = paras
