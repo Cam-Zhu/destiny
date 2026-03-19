@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>命理推算 · Chinese Astrology Reading</title>
+  <title>Red Lantern Readings · Chinese Astrology</title>
+  <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg">
+  <meta name="theme-color" content="#1a0a00">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
@@ -135,6 +137,37 @@
       </div>
 
     </div>
+
+    <!-- FOOTER -->
+    <div class="site-footer">
+      <div class="footer-divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+      <p class="footer-text">
+        &copy; 2026 Red Lantern Readings &middot; Cam Robertson &middot;
+        <a href="mailto:cameronnrobertson@pm.me" class="footer-link">cameronnrobertson@pm.me</a>
+      </p>
+      <p class="footer-text">
+        <button class="footer-policy-btn" onclick="showPolicy()">Refund Policy</button>
+      </p>
+    </div>
+
+    <!-- REFUND POLICY MODAL -->
+    <div id="policy-overlay" onclick="hidePolicy()" style="display:none; position:fixed; inset:0; background:rgba(26,10,0,0.7); z-index:100; align-items:center; justify-content:center; padding:24px;">
+      <div class="policy-modal" onclick="event.stopPropagation()">
+        <div class="policy-header" style="text-align:center; margin-bottom:16px;">
+          <span style="font-family:Noto Serif SC,serif; font-size:18px; color:#b5181a; letter-spacing:6px; display:block; margin-bottom:4px;">退款政策</span>
+          <div class="divider" style="margin:8px 0;"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+          <span style="font-family:Cinzel,serif; font-size:10px; letter-spacing:4px; color:#7a5c3a; text-transform:uppercase;">Refund Policy</span>
+        </div>
+        <div class="policy-body">
+          <p>Red Lantern Readings provides personalised digital astrology readings generated at the time of your request. As each reading is a unique, immediately delivered digital product, all purchases are non-refundable once readings have been generated and delivered.</p>
+          <p>If you experience a technical issue that prevents you from accessing your readings — for example, a payment was taken but credits were not added to your account — please contact us and we will resolve it promptly.</p>
+          <p>We are committed to ensuring every reading reaches you. If something goes wrong on our end, we will make it right.</p>
+          <p class="policy-contact">Contact: <a href="mailto:cameronnrobertson@pm.me" class="footer-link">cameronnrobertson@pm.me</a></p>
+        </div>
+        <button class="submit-btn" style="margin-top:16px;" onclick="hidePolicy()">Close</button>
+      </div>
+    </div>
+
   </div>
 
   <script src="js/astro.js"></script>
