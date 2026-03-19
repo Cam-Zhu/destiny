@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>命理推算 · Chinese Astrology Reading</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="noise-bg"></div>
+    <svg class="corner-ornament tl" viewBox="0 0 60 60" fill="none"><path d="M4 4 L4 56 M4 4 L56 4" stroke="#b5181a" stroke-width="1.5"/><path d="M12 12 L12 48 M12 12 L48 12" stroke="#b5181a" stroke-width="0.5"/><circle cx="4" cy="4" r="2.5" fill="#b5181a"/><circle cx="28" cy="4" r="1.2" fill="#c8922a"/><circle cx="4" cy="28" r="1.2" fill="#c8922a"/><path d="M12 12 Q20 8 28 12 Q20 16 12 12Z" fill="#c8922a" opacity="0.6"/></svg>
+    <svg class="corner-ornament tr" viewBox="0 0 60 60" fill="none"><path d="M4 4 L4 56 M4 4 L56 4" stroke="#b5181a" stroke-width="1.5"/><path d="M12 12 L12 48 M12 12 L48 12" stroke="#b5181a" stroke-width="0.5"/><circle cx="4" cy="4" r="2.5" fill="#b5181a"/><circle cx="28" cy="4" r="1.2" fill="#c8922a"/><circle cx="4" cy="28" r="1.2" fill="#c8922a"/><path d="M12 12 Q20 8 28 12 Q20 16 12 12Z" fill="#c8922a" opacity="0.6"/></svg>
+    <svg class="corner-ornament bl" viewBox="0 0 60 60" fill="none"><path d="M4 4 L4 56 M4 4 L56 4" stroke="#b5181a" stroke-width="1.5"/><path d="M12 12 L12 48 M12 12 L48 12" stroke="#b5181a" stroke-width="0.5"/><circle cx="4" cy="4" r="2.5" fill="#b5181a"/><circle cx="28" cy="4" r="1.2" fill="#c8922a"/><circle cx="4" cy="28" r="1.2" fill="#c8922a"/><path d="M12 12 Q20 8 28 12 Q20 16 12 12Z" fill="#c8922a" opacity="0.6"/></svg>
+    <svg class="corner-ornament br" viewBox="0 0 60 60" fill="none"><path d="M4 4 L4 56 M4 4 L56 4" stroke="#b5181a" stroke-width="1.5"/><path d="M12 12 L12 48 M12 12 L48 12" stroke="#b5181a" stroke-width="0.5"/><circle cx="4" cy="4" r="2.5" fill="#b5181a"/><circle cx="28" cy="4" r="1.2" fill="#c8922a"/><circle cx="4" cy="28" r="1.2" fill="#c8922a"/><path d="M12 12 Q20 8 28 12 Q20 16 12 12Z" fill="#c8922a" opacity="0.6"/></svg>
+    <div class="border-frame"></div>
+
+    <div class="content">
+      <div class="header">
+        <span class="header-chinese">命理推算</span>
+        <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+        <span class="header-title">Chinese Astrology Reading</span>
+      </div>
+
+      <!-- AUTH VIEW -->
+      <div id="auth-view">
+        <div class="form-section">
+          <p class="auth-intro">Each visitor receives <strong>3 free readings</strong>. Enter your email to begin — no password required.</p>
+          <div class="form-row">
+            <label class="form-label">Email Address</label>
+            <input class="form-input" id="inp-email" type="email" placeholder="your@email.com" />
+          </div>
+          <div id="auth-error" class="error-msg" style="display:none;"></div>
+          <button class="submit-btn" onclick="handleAuth()">Enter the Temple</button>
+          <p class="auth-note">We'll remember your readings across visits. No spam, ever.</p>
+        </div>
+      </div>
+
+      <!-- FORM VIEW -->
+      <div id="form-view" style="display:none;">
+        <div class="user-bar">
+          <span id="user-email-display"></span>
+          <span class="credits-badge" id="credits-display"></span>
+          <button class="text-btn" onclick="logout()">Leave</button>
+        </div>
+        <div class="form-section">
+          <div class="form-row">
+            <label class="form-label">Your Name</label>
+            <input class="form-input" id="inp-name" type="text" placeholder="Enter your name…" />
+          </div>
+          <div class="form-row">
+            <label class="form-label">Date of Birth</label>
+            <div class="form-grid">
+              <input class="form-input" id="inp-day" type="number" placeholder="Day" min="1" max="31" />
+              <input class="form-input" id="inp-month" type="number" placeholder="Month" min="1" max="12" />
+              <input class="form-input" id="inp-year" type="number" placeholder="Year" min="1900" max="2025" />
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Hour of Birth <span class="label-note">(optional — refines Four Pillars)</span></label>
+            <input class="form-input" id="inp-hour" type="number" placeholder="Hour (0–23)" min="0" max="23" />
+          </div>
+          <div id="form-error" class="error-msg" style="display:none;"></div>
+          <button class="submit-btn" id="get-reading-btn" onclick="getReading()">Reveal My Destiny</button>
+        </div>
+      </div>
+
+      <!-- PAYWALL VIEW -->
+      <div id="paywall-view" style="display:none;">
+        <div class="paywall-content">
+          <span class="paywall-icon">🔮</span>
+          <h2 class="paywall-title">Your Free Readings Are Spent</h2>
+          <p class="paywall-body">The celestial record shows you have used all 3 complimentary readings. Unlock 10 more to continue your journey through the stars.</p>
+          <div class="price-card">
+            <span class="price-amount">£2.99</span>
+            <span class="price-desc">10 readings · Never expires</span>
+          </div>
+          <button class="submit-btn" onclick="startCheckout()">Unlock 10 Readings</button>
+          <button class="reset-btn" style="margin-top:12px;" onclick="showForm()">← Back</button>
+        </div>
+      </div>
+
+      <!-- LOADING VIEW -->
+      <div id="loading-view" style="display:none;">
+        <p class="loading-msg" id="loading-text">Consulting the celestial calendar…</p>
+      </div>
+
+      <!-- READING VIEW -->
+      <div id="reading-view" style="display:none;">
+        <div class="sign-banner">
+          <span class="sign-emoji" id="res-emoji">🐉</span>
+          <div>
+            <span class="sign-name" id="res-sign">Dragon</span>
+            <span class="sign-chinese" id="res-chinese">龍</span>
+          </div>
+          <div class="sign-element" id="res-element">Wood Dragon · Yang</div>
+        </div>
+        <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+        <div class="section-heading">Four Pillars of Destiny</div>
+        <div class="pillars-grid" id="pillars-grid"></div>
+        <div class="divider" style="margin:20px 0 16px;"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+        <div class="reading-body" id="reading-body"></div>
+        <div class="user-bar" style="margin-top:24px;">
+          <span class="credits-badge" id="credits-display-2"></span>
+          <button class="reset-btn" onclick="showForm()" style="margin:0;width:auto;padding:8px 20px;">New Reading</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS VIEW (after Stripe payment) -->
+      <div id="success-view" style="display:none;">
+        <div class="paywall-content">
+          <span class="paywall-icon">✨</span>
+          <h2 class="paywall-title">The Stars Welcome You</h2>
+          <p class="paywall-body">Your 10 readings have been unlocked. May the celestial forces guide your path.</p>
+          <button class="submit-btn" onclick="showForm()">Begin Your Reading</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/astro.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
