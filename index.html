@@ -149,8 +149,10 @@
           &copy; 2026 Red Lantern Readings &middot; Cam Robertson &middot;
           <a href="mailto:cameronnrobertson@pm.me" style="color:#7a5c3a;text-decoration:none;">cameronnrobertson@pm.me</a>
         </p>
-        <p style="font-family:Cinzel,serif;font-size:9px;letter-spacing:2px;color:#7a5c3a;margin-bottom:0;">
+         <p style="font-family:Cinzel,serif;font-size:9px;letter-spacing:2px;color:#7a5c3a;margin-bottom:0;">
           <button onclick="showPolicy()" style="background:none;border:none;font-family:Cinzel,serif;font-size:9px;letter-spacing:2px;color:#7a5c3a;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:0;">Refund Policy</button>
+          <span style="color:#c8922a;padding:0 6px;">&middot;</span>
+          <button onclick="showPrivacy()" style="background:none;border:none;font-family:Cinzel,serif;font-size:9px;letter-spacing:2px;color:#7a5c3a;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:0;">Privacy Policy</button>
         </p>
       </div>
 
@@ -169,6 +171,22 @@
         <p style="font-family:'IM Fell English',Georgia,serif;font-size:14px;line-height:1.8;color:#2d1200;margin-bottom:14px;">We are committed to ensuring every reading reaches you. If something goes wrong on our end, we will make it right.</p>
         <p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;color:#7a5c3a;margin-bottom:20px;">Contact: <a href="mailto:cameronnrobertson@pm.me" style="color:#b5181a;text-decoration:none;">cameronnrobertson@pm.me</a></p>
         <button onclick="hidePolicy()" style="display:block;width:100%;padding:13px;background:#b5181a;color:#f5ede0;border:none;border-radius:2px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;">Close</button>
+      </div>
+    </div>
+
+    <!-- PRIVACY POLICY MODAL -->
+    <div id="privacy-overlay" onclick="hidePrivacy()" style="display:none;position:fixed;inset:0;background:rgba(26,10,0,0.75);z-index:100;align-items:center;justify-content:center;padding:24px;">
+      <div onclick="event.stopPropagation()" style="background:#f5ede0;border:1px solid rgba(181,24,26,0.3);border-radius:4px;padding:28px;max-width:480px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 8px 48px rgba(80,40,0,0.35);">
+        <div style="text-align:center;margin-bottom:20px;">
+          <span style="font-family:'Noto Serif SC',serif;font-size:18px;color:#b5181a;letter-spacing:6px;display:block;margin-bottom:8px;">隱私政策</span>
+          <div style="display:flex;align-items:center;gap:12px;margin:8px 0;"><div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent,#c8922a,transparent);"></div><div style="width:5px;height:5px;background:#c8922a;transform:rotate(45deg);opacity:0.7;"></div><div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent,#c8922a,transparent);"></div></div>
+          <span style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:#7a5c3a;text-transform:uppercase;">Privacy Policy</span>
+        </div>
+        <p style="font-family:'IM Fell English',Georgia,serif;font-size:14px;line-height:1.8;color:#2d1200;margin-bottom:14px;">Red Lantern Readings collects your email address solely to manage your reading credits across visits. We will never send you marketing emails, newsletters, or any unsolicited communications. Your email is used for nothing other than identifying your account.</p>
+        <p style="font-family:'IM Fell English',Georgia,serif;font-size:14px;line-height:1.8;color:#2d1200;margin-bottom:14px;">We use Plausible Analytics to understand how people use this site. Plausible is privacy-friendly by design. It collects no personal data, uses no cookies, and cannot identify individual visitors. All analytics are fully anonymous.</p>
+        <p style="font-family:'IM Fell English',Georgia,serif;font-size:14px;line-height:1.8;color:#2d1200;margin-bottom:14px;">We do not sell, share, or pass your data to any third party, except Stripe for payment processing. Stripe's own privacy policy governs any data collected during checkout.</p>
+        <p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;color:#7a5c3a;margin-bottom:20px;">Contact: <a href="mailto:cameronnrobertson@pm.me" style="color:#b5181a;text-decoration:none;">cameronnrobertson@pm.me</a></p>
+        <button onclick="hidePrivacy()" style="display:block;width:100%;padding:13px;background:#b5181a;color:#f5ede0;border:none;border-radius:2px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;">Close</button>
       </div>
     </div>
 
