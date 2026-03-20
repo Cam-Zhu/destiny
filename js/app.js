@@ -227,3 +227,12 @@ function hidePolicy() {
   const el = document.getElementById('policy-overlay');
   el.style.display = 'none';
 }
+
+// ── Privacy modal ─────────────────────────────────────────────
+function showPrivacy() {
+  document.getElementById('privacy-overlay').style.display = 'flex';
+}
+
+function hidePrivacy() {
+  document.getElementById('privacy-overlay').style.display = 'none';
+}
