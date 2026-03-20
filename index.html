@@ -156,21 +156,19 @@
 
     </div>
 
-    <!-- REFUND POLICY MODAL -->
-    <div id="policy-overlay" onclick="hidePolicy()" style="display:none; position:fixed; inset:0; background:rgba(26,10,0,0.7); z-index:100; align-items:center; justify-content:center; padding:24px;">
-      <div class="policy-modal" onclick="event.stopPropagation()">
-        <div class="policy-header" style="text-align:center; margin-bottom:16px;">
-          <span style="font-family:Noto Serif SC,serif; font-size:18px; color:#b5181a; letter-spacing:6px; display:block; margin-bottom:4px;">退款政策</span>
-          <div class="divider" style="margin:8px 0;"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
-          <span style="font-family:Cinzel,serif; font-size:10px; letter-spacing:4px; color:#7a5c3a; text-transform:uppercase;">Refund Policy</span>
+<!-- REFUND POLICY MODAL -->
+    <div id="policy-overlay" onclick="hidePolicy()" style="display:none;position:fixed;inset:0;background:rgba(26,10,0,0.75);z-index:100;align-items:center;justify-content:center;padding:24px;">
+      <div onclick="event.stopPropagation()" style="background:#f5ede0;border:1px solid rgba(181,24,26,0.3);border-radius:4px;padding:28px;max-width:480px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 8px 48px rgba(80,40,0,0.35);">
+        <div style="text-align:center;margin-bottom:20px;">
+          <span style="font-family:'Noto Serif SC',serif;font-size:18px;color:#b5181a;letter-spacing:6px;display:block;margin-bottom:8px;">退款政策</span>
+          <div style="display:flex;align-items:center;gap:12px;margin:8px 0;"><div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent,#c8922a,transparent);"></div><div style="width:5px;height:5px;background:#c8922a;transform:rotate(45deg);opacity:0.7;"></div><div style="flex:1;height:0.5px;background:linear-gradient(to right,transparent,#c8922a,transparent);"></div></div>
+          <span style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:#7a5c3a;text-transform:uppercase;">Refund Policy</span>
         </div>
-        <div class="policy-body">
-          <p>Red Lantern Readings provides personalised digital astrology readings generated at the time of your request. As each reading is a unique, immediately delivered digital product, all purchases are non-refundable once readings have been generated and delivered.</p>
-          <p>If you experience a technical issue that prevents you from accessing your readings — for example, a payment was taken but credits were not added to your account — please contact us and we will resolve it promptly.</p>
-          <p>We are committed to ensuring every reading reaches you. If something goes wrong on our end, we will make it right.</p>
-          <p class="policy-contact">Contact: <a href="mailto:cameronnrobertson@pm.me" class="footer-link">cameronnrobertson@pm.me</a></p>
-        </div>
-        <button class="submit-btn" style="margin-top:16px;" onclick="hidePolicy()">Close</button>
+        <p style="font-family:'IM Fell English',Georgia,serif;font-size:14px;line-height:1.8;color:#2d1200;margin-bottom:14px;">Red Lantern Readings provides personalised digital astrology readings generated at the time of your request. As each reading is a unique, immediately delivered digital product, all purchases are non-refundable once readings have been generated and delivered.</p>
+        <p style="font-family:'IM Fell English',Georgia,serif;font-size:14px;line-height:1.8;color:#2d1200;margin-bottom:14px;">If you experience a technical issue that prevents you from accessing your readings — for example, a payment was taken but credits were not added to your account — please contact us and we will resolve it promptly.</p>
+        <p style="font-family:'IM Fell English',Georgia,serif;font-size:14px;line-height:1.8;color:#2d1200;margin-bottom:14px;">We are committed to ensuring every reading reaches you. If something goes wrong on our end, we will make it right.</p>
+        <p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;color:#7a5c3a;margin-bottom:20px;">Contact: <a href="mailto:cameronnrobertson@pm.me" style="color:#b5181a;text-decoration:none;">cameronnrobertson@pm.me</a></p>
+        <button onclick="hidePolicy()" style="display:block;width:100%;padding:13px;background:#b5181a;color:#f5ede0;border:none;border-radius:2px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;">Close</button>
       </div>
     </div>
 
